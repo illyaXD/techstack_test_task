@@ -1,0 +1,22 @@
+name: Run Bash Script
+
+# Trigger workflow on any push to the main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository code
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      # Ensure the script is executable and run the script
+      - name: Execute script.sh
+        run: |
+          chmod +x script.sh
+          ./script.sh
